@@ -1,3 +1,33 @@
-[gd_scene format=3 uid="uid://c7pv13sk6mrp7"]
+[gd_scene load_steps=5 format=3 uid="uid://c7pv13sk6mrp7"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="Script" uid="uid://c24tsb3vbjtsg" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bc7v8r1q2ea2p" path="res://PERRO DEFINITIVO.png" id="2_kne1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
+size = Vector2(133, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpjcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kne1u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(128, 311)
+shape = SubResource("RectangleShape2D_cxr5p")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(121, 248)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(138, 318)
+scale = Vector2(0.126628, 0.144043)
+sprite_frames = SubResource("SpriteFrames_kpjcp")

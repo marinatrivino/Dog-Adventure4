@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+class_name Player
 @export var speed := 200
 @export var jump_force := -400
+@export var bones_label: Label
 var gravity := 980
 var bones = 0
+var posicion_inicial: Vector2
+
 
 func _physics_process(delta):
 	var vel = velocity
@@ -22,7 +26,15 @@ func _physics_process(delta):
 	velocity = vel
 	move_and_slide()
 
+func _ready():
+	posicion_inicial = position
+
 func add_bone():
 	bones += 1
 	var label = get_node("/root/Level1/HUD/BonesLabel")
-	label.text = "Bones: " + str(bones)
+	bones_label.text = "Bones: " + str(bones)
+
+func die():
+	visible = false
+	position = posicion_inicial
+	visible = true

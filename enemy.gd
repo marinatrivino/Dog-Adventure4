@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 # Velocidad de movimiento
 var velocidad = 100
@@ -22,6 +22,6 @@ func _process(delta):
 		direccion = -1
 		$AnimatedSprite2D.flip_h = true
 
-
-func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.die()

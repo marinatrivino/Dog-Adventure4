@@ -29,8 +29,8 @@ animations = [{
 [node name="Level1" type="Node2D"]
 
 [node name="Step4" type="Sprite2D" parent="."]
-position = Vector2(2126, 235)
-scale = Vector2(132.773, 761.5)
+position = Vector2(4298.5, 235)
+scale = Vector2(231.341, 761.5)
 texture = ExtResource("1_5g1s2")
 
 [node name="Floor" type="Node2D" parent="."]
